@@ -27,7 +27,7 @@ $margin-small = ($gutter)
 $margin-basic = ($gutter*2)
 $margin-large = ($gutter*5)
 
-$font-size-basic = 15px
+$font-size-basic = 16px
 $font-leading-basic = 1.35em
 $font-tracking-basic = 0.001em
 
@@ -37,6 +37,9 @@ $color-white = rgb(255,255,255)
 $color-grey-light = rgb(140,140,140)
 $color-grey-dark = rgb(40,40,40)
 $color-grey-medium = rgb(90,90,90)
+
+$sans = helvetica, arial
+$serif = times, georgia
 
 // TYPOGRAPHY
 
@@ -56,8 +59,37 @@ h3
   font-size: 1.5em
 
 p
-  margin-bottom: 1em
+  line-height: $font-leading-basic
+  text-align: center
+  width: 100%
 
+.top
+  top: $margin-small
+  position: absolute
+  
+.middle
+  position: absolute
+  height: 100%
+  width: 100%
+  display: table-cell
+  vertical-align: middle
+
+.bottom
+  bottom: $margin-small
+  position: absolute
+  
+.sans-medium
+  font-size: 1em
+  font-family: $sans
+  
+.sans-small
+  font-size: .5em
+  font-family: $sans
+  
+.serif-medium
+  font-size: 1em
+  font-family: $serif
+  
 
 // LINKS
 
@@ -71,11 +103,12 @@ a,a:active,a:visited
 // BASIC
 
 html
-  background-color: $color-grey
+  background: $color-grey-medium;
+  background: linear-gradient(to bottom,  $color-grey-dark 0%, $color-grey-light 100%);
   color: $color-black-soft
   width: 100%
   height: 100%
-  animation: background-colors 20s infinite
+  //animation: background-colors 20s infinite 
 
 #main-container
   position: fixed
@@ -93,23 +126,49 @@ img
 // HEADER
 
 #header
-  min-height: 20px
-  background: black
-
-// BOOK
-
-.turn-page
-  background-color: $color-white
-
+  width: 100%
+  position: fixed
+  top: 0
+  color: $color-white
+  padding: $margin-small
+  text-align: right
+  
 
 // FOOTER
 
 #footer
-  min-height: 100px
-  background: black
   width: 100%
   position: fixed
   bottom: 0
+  color: $color-white
+  padding: $margin-small
+  
+
+// BOOK
+
+#lookbook .shadow, #lookbook.shadow
+  box-shadow: 10px 0 4px 10px #ff0
+
+.turn-page
+  background-color: $color-white
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+  text-align: center
+
+.p1
+  background-size: 50%
+  background-image: url('../img/lookbook/p1.jpg')
+  
+.p2
+  background-image: url('../img/lookbook/p2.jpg')
+  
+.p4
+  background-image: url('../img/lookbook/p3.jpg')
+  
+
+
+
   
 
 @keyframes background-colors
@@ -131,6 +190,10 @@ img
 
 // MEDIA QUERIES
 
-@media screen and (max-width: ($col * $cols)+($gutter * $cols))
-  html
-    width: 100%
+@media screen and (max-width: 700px)
+  $font-size-basic = 12px
+  $font-leading-basic = 1.35em
+  
+  body
+    font-size: $font-size-basic
+    line-height: $font-leading-basic
