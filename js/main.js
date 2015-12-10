@@ -11,11 +11,11 @@ $(document).ready(function () {
     footer = $('#footer'),
     headerHeight = header.height(),
     footerHeight = footer.height(),
-    lookbookHeight = ( winHeight - ( ( headerHeight + footerHeight ) * 2 ) ),
+    lookbookHeight = ( winHeight - ( ( headerHeight + footerHeight ) * 2) ),
     lookbookWidth = ( ( lookbookHeight * 0.707 ) * 2 );
 
   lookbook.css({
-    'margin-top': ( ( winHeight - lookbookHeight ) / 2 ),
+    'margin-top':  ( ( headerHeight + footerHeight ) / 2),
     'margin-left': ( ( winWidth - lookbookWidth ) / 2 ),
   }).turn({
     height: lookbookHeight,
