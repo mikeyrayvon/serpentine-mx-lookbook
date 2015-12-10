@@ -9,29 +9,53 @@ $(document).ready(function () {
     winWidth = $(window).width(),
     header = $('#header'),
     footer = $('#footer'),
-    headerHeight = header.height(),
-    footerHeight = footer.height(),
-    lookbookHeight = ( winHeight - ( ( headerHeight + footerHeight ) * 2) ),
+    headerHeight = header.outerHeight(true),
+    footerHeight = footer.outerHeight(true),
+    lookbookHeight,
+    lookbookWidth;
+
+  if (winWidth > winHeight) {
+    lookbookHeight = ( winHeight - ( headerHeight + footerHeight ) );
     lookbookWidth = ( ( lookbookHeight * 0.707 ) * 2 );
+  } else {
+    lookbookWidth = ( winWidth * 0.9 );
+    lookbookHeight = ( lookbookWidth * 1.414 ) / 2;
+  }
 
   lookbook.css({
-    'margin-top':  ( ( headerHeight + footerHeight ) / 2),
+    'margin-top': ( ( winHeight - lookbookHeight ) / 2),
     'margin-left': ( ( winWidth - lookbookWidth ) / 2 ),
   }).turn({
     height: lookbookHeight,
     width: lookbookWidth,
     autoCenter: true,
-  });
+    gradients: true,
+    /*when: {
+      turning: function(event, page, pageObject) {
+        $('.turn-page-wrapper').css('box-shadow','none');
 
+        for (var i = pageObject.length - 1; i >= 0; i--) {
+          console.log(pageObject[i]);
+          $('.p'+pageObject[i]).parent('.turn-page-wrapper').css('box-shadow','0 0 20px 0 #f00');
+        };
+      }
+    }*/
+  });
 
   $(window).on('resize', function(){
     winHeight = $(window).height();
     winWidth = $(window).width();
-    lookbookHeight = ( winHeight - ( ( headerHeight + footerHeight ) * 2 ) ),
-    lookbookWidth = ( ( lookbookHeight * 0.707 ) * 2 );
+
+    if (winWidth > winHeight) {
+      lookbookHeight = ( winHeight - ( headerHeight + footerHeight ) );
+      lookbookWidth = ( ( lookbookHeight * 0.707 ) * 2 );
+    } else {
+      lookbookWidth = ( winWidth * 0.9 );
+      lookbookHeight = ( lookbookWidth * 1.414 ) / 2;
+    }
 
     lookbook.css({
-      'margin-top': ( ( winHeight - lookbookHeight ) / 2 ),
+      'margin-top': ( ( winHeight - lookbookHeight ) / 2),
       'margin-left': ( ( winWidth - lookbookWidth ) / 2 ),
     }).turn('size', lookbookWidth, lookbookHeight);
   });
