@@ -28,18 +28,8 @@ $(document).ready(function () {
   }).turn({
     height: lookbookHeight,
     width: lookbookWidth,
-    autoCenter: true,
+    autoCenter: false,
     gradients: true,
-    /*when: {
-      turning: function(event, page, pageObject) {
-        $('.turn-page-wrapper').css('box-shadow','none');
-
-        for (var i = pageObject.length - 1; i >= 0; i--) {
-          console.log(pageObject[i]);
-          $('.p'+pageObject[i]).parent('.turn-page-wrapper').css('box-shadow','0 0 20px 0 #f00');
-        };
-      }
-    }*/
   });
 
   $(window).on('resize', function(){
