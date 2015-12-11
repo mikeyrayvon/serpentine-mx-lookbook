@@ -23,7 +23,7 @@ $(document).ready(function () {
   }
 
   lookbook.css({
-    'margin-top': ( ( winHeight - lookbookHeight ) / 2),
+    'margin-top': ( ( winHeight - lookbookHeight ) / 2 ),
     'margin-left': ( ( winWidth - lookbookWidth ) / 2 ),
   }).turn({
     height: lookbookHeight,
@@ -35,6 +35,8 @@ $(document).ready(function () {
   $(window).on('resize', function(){
     winHeight = $(window).height();
     winWidth = $(window).width();
+    headerHeight = header.outerHeight(true);
+    footerHeight = footer.outerHeight(true);
 
     if (winWidth > winHeight) {
       lookbookHeight = ( winHeight - ( headerHeight + footerHeight ) );
@@ -45,7 +47,7 @@ $(document).ready(function () {
     }
 
     lookbook.css({
-      'margin-top': ( ( winHeight - lookbookHeight ) / 2),
+      'margin-top': ( ( winHeight - lookbookHeight ) / 2 ),
       'margin-left': ( ( winWidth - lookbookWidth ) / 2 ),
     }).turn('size', lookbookWidth, lookbookHeight);
   });
