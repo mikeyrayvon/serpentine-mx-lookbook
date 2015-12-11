@@ -32,6 +32,12 @@ $(document).ready(function () {
     gradients: true,
   });
 
+  $('#lookbook-container').imagesLoaded( function() {
+    console.log('loaded');
+    $('#lookbook-container').css('opacity',1);
+  });
+
+
   $(window).on('resize', function(){
     winHeight = $(window).height();
     winWidth = $(window).width();
