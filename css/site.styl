@@ -154,6 +154,10 @@ img
 
 // BOOK
 
+#lookbook-container
+  opacity: 0
+  transition: opacity 1s
+
 .shadow
   box-shadow: 0px 0 $margin-basic $margin-small $color-grey-dark 
 
@@ -387,10 +391,72 @@ img
 
 // MEDIA QUERIES
 
-@media screen and (max-width: 700px)
-  $font-size-basic = 12px
+@media screen and (max-width: 700px), screen and (max-height: 700px)
+  $font-size-basic = 16px
   $font-leading-basic = 1.35em
   
   body
     font-size: $font-size-basic
     line-height: $font-leading-basic
+    
+@media screen and (max-width: 500px), screen and (max-height: 500px)
+  $gutter = 10px
+  
+  $margin-tiny = ($gutter/2)
+  $margin-small = ($gutter)
+  $margin-basic = ($gutter*2)
+  $margin-large = ($gutter*5)
+  
+  $font-size-basic = 10px
+  $font-leading-basic = 1.35em
+  
+  body
+    font-size: $font-size-basic
+    line-height: $font-leading-basic
+    
+  .top
+    top: $margin-small
+
+  .bottom
+    bottom: $margin-small
+  
+  #header
+    padding: $margin-basic
+    
+  #footer
+    font-size: 1.2em
+    padding: $margin-basic $margin-basic $margin-small
+
+  .shadow
+    box-shadow: 0px 0 $margin-basic $margin-small $color-grey-dark 
+    
+@media screen and (max-width: 400px)
+  $gutter = 9px
+  
+  $margin-tiny = ($gutter/2)
+  $margin-small = ($gutter)
+  $margin-basic = ($gutter*2)
+  $margin-large = ($gutter*5)
+  
+  $font-size-basic = 8px
+  $font-leading-basic = 1.35em
+  
+  body
+    font-size: $font-size-basic
+    line-height: $font-leading-basic
+    
+  .top
+    top: $margin-small
+
+  .bottom
+    bottom: $margin-small
+  
+  #header
+    padding: $margin-basic
+    
+  #footer
+    font-size: 1.2em
+    padding: $margin-basic $margin-basic $margin-small
+
+  .shadow
+    box-shadow: 0px 0 $margin-basic $margin-small $color-grey-dark 
